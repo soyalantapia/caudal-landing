@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#2B4A3E">
+  <title>Caudal · Hamburguesería y birrería en San Pedro</title>
+  <meta name="description" content="Hamburguesería y birrería en el centro de San Pedro · Smash a la plancha, cerveza artesanal local, pan amasado a dos cuadras.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Caudal · Hamburguesería y birrería en San Pedro">
+  <meta property="og:description" content="Hamburguesería y birrería en el centro de San Pedro · Smash a la plancha, cerveza artesanal local, pan amasado a dos cuadras.">
+  <meta property="og:image" content="/assets/og-image.jpg">
+  <meta property="og:url" content="TODO_DOMAIN">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Caudal · Hamburguesería y birrería en San Pedro">
+  <meta name="twitter:description" content="Hamburguesería y birrería en el centro de San Pedro · Smash a la plancha, cerveza artesanal local, pan amasado a dos cuadras.">
+  <meta name="twitter:image" content="/assets/og-image.jpg">
+
+  <link rel="canonical" href="TODO_DOMAIN">
+  <link rel="icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'verde-parana': '#2B4A3E',
+            'verde-parana-dark': '#1F3830',
+            'crema-brioche': '#E8D9B8',
+            'naranja-sampedrina': '#D96E2A',
+            'amarillo-ensaimada': '#E4B54A',
+            'lino-crudo': '#F2EDE4',
+            'negro-tinta': '#1A1A18'
+          },
+          fontFamily: {
+            'display': ['"Archivo Black"', 'system-ui', 'sans-serif'],
+            'body': ['"Inter"', 'system-ui', '-apple-system', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    :root {
+      --verde-parana: #2B4A3E;
+      --crema-brioche: #E8D9B8;
+      --naranja-sampedrina: #D96E2A;
+      --amarillo-ensaimada: #E4B54A;
+      --lino-crudo: #F2EDE4;
+      --negro-tinta: #1A1A18;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--negro-tinta);
+      background: var(--lino-crudo);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .font-display {
+      font-family: 'Archivo Black', system-ui, sans-serif;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    /* La línea del caudal — gesto gráfico único del sistema */
+    .linea-caudal {
+      display: block;
+      height: 2px;
+      background: currentColor;
+      width: 100%;
+    }
+    .linea-caudal-hero {
+      height: 3px;
+      background: var(--crema-brioche);
+    }
+
+    .hero-title {
+      font-size: clamp(56px, 10vw, 120px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+    .section-title {
+      font-size: clamp(44px, 8vw, 80px);
+      line-height: 1.0;
+    }
+
+    /* HERO: imagen de fondo desde Unsplash (brewpub interior cálido).
+       Si el usuario sube /assets/hero.jpg, reemplaza en el CSS de abajo. */
+    .hero-bg {
+      background-image:
+        linear-gradient(180deg, rgba(43, 74, 62, 0.55) 0%, rgba(43, 74, 62, 0.78) 70%, rgba(31, 56, 48, 0.95) 100%),
+        url('https://images.unsplash.com/photo-1546195643-70f48f9c5b87?w=1920&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: scroll;
+    }
+
+    /* Scroll indicator */
+    @keyframes bobDown {
+      0%, 100% { transform: translateY(0); opacity: 0.65; }
+      50% { transform: translateY(10px); opacity: 1; }
+    }
+    .scroll-indicator {
+      animation: bobDown 2s ease-in-out infinite;
+    }
+
+    /* Reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms cubic-bezier(.22,1,.36,1), transform 700ms cubic-bezier(.22,1,.36,1);
+      will-change: opacity, transform;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.96);
+      transition: opacity 700ms ease-out, transform 700ms cubic-bezier(.22,1,.36,1);
+    }
+    .reveal-scale.is-visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    /* Delays escalonados para grids */
+    .delay-1 { transition-delay: 80ms; }
+    .delay-2 { transition-delay: 160ms; }
+    .delay-3 { transition-delay: 240ms; }
+    .delay-4 { transition-delay: 320ms; }
+    .delay-5 { transition-delay: 400ms; }
+    .delay-6 { transition-delay: 480ms; }
+
+    /* Hero entrance */
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-anim { animation: heroFadeIn 900ms cubic-bezier(.22,1,.36,1) both; }
+    .hero-anim-1 { animation-delay: 100ms; }
+    .hero-anim-2 { animation-delay: 280ms; }
+    .hero-anim-3 { animation-delay: 440ms; }
+    .hero-anim-4 { animation-delay: 600ms; }
+    .hero-anim-5 { animation-delay: 760ms; }
+
+    /* Focus visible */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
+      outline: 2px solid var(--amarillo-ensaimada);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(43, 74, 62, 0.85);
+      backdrop-filter: blur(10px) saturate(140%);
+      -webkit-backdrop-filter: blur(10px) saturate(140%);
+      transition: background 220ms ease-out, box-shadow 220ms ease-out;
+    }
+    .navbar.scrolled {
+      background: rgba(31, 56, 48, 0.96);
+      box-shadow: 0 2px 24px -8px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Plato cards */
+    .plato-card {
+      transition: transform 220ms ease-out, box-shadow 220ms ease-out;
+      overflow: hidden;
+    }
+    .plato-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px -12px rgba(26, 26, 24, 0.22);
+    }
+    .plato-img-wrap {
+      overflow: hidden;
+      aspect-ratio: 16/10;
+      background: #22382F;
+    }
+    .plato-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 500ms cubic-bezier(.22,1,.36,1);
+    }
+    .plato-card:hover .plato-img {
+      transform: scale(1.06);
+    }
+
+    /* Hero plato ancla */
+    .ancla-img-wrap {
+      overflow: hidden;
+      border-radius: 4px;
+      aspect-ratio: 16/10;
+      background: #22382F;
+    }
+    .ancla-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 600ms cubic-bezier(.22,1,.36,1);
+    }
+    .plato-ancla:hover .ancla-img { transform: scale(1.04); }
+
+    /* Lugar images */
+    .lugar-img-wrap {
+      overflow: hidden;
+      border-radius: 6px;
+      background: #22382F;
+    }
+    .lugar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 700ms cubic-bezier(.22,1,.36,1);
+    }
+    .lugar-img-wrap:hover .lugar-img { transform: scale(1.05); }
+
+    /* Form inputs */
+    .form-input,
+    .form-textarea {
+      background: var(--crema-brioche);
+      color: var(--negro-tinta);
+      padding: 12px 16px;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      width: 100%;
+      font-family: inherit;
+      font-size: 16px;
+      transition: border-color 160ms ease-out;
+    }
+    .form-input[aria-invalid="true"],
+    .form-textarea[aria-invalid="true"] {
+      border-color: #D14B3A;
+    }
+
+    /* Mobile drawer */
+    .drawer {
+      transform: translateX(100%);
+      transition: transform 260ms cubic-bezier(.22,1,.36,1);
+    }
+    .drawer.open { transform: translateX(0); }
+
+    .drawer-backdrop {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 240ms ease-out;
+    }
+    .drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* CTA botón con shimmer sutil */
+    .btn-primary {
+      background: var(--naranja-sampedrina);
+      color: var(--crema-brioche);
+      position: relative;
+      overflow: hidden;
+      transition: transform 160ms ease-out, box-shadow 220ms ease-out;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px -10px rgba(217, 110, 42, 0.6);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--crema-brioche);
+      color: var(--crema-brioche);
+      transition: background 180ms ease-out, color 180ms ease-out, transform 160ms ease-out;
+    }
+    .btn-outline:hover {
+      background: var(--crema-brioche);
+      color: var(--verde-parana);
+      transform: translateY(-2px);
+    }
+
+    /* WhatsApp pulse discreto */
+    @keyframes whatsPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(217, 110, 42, 0.45); }
+      50% { box-shadow: 0 0 0 12px rgba(217, 110, 42, 0); }
+    }
+    .wa-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 40;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px -4px rgba(0, 0, 0, 0.3);
+      animation: whatsPulse 2.6s ease-in-out infinite;
+      transition: transform 180ms ease-out;
+    }
+    .wa-float:hover { transform: scale(1.08); }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+      .reveal, .reveal-scale { opacity: 1; transform: none; }
+      .scroll-indicator { animation: none; }
+      .wa-float { animation: none; }
+    }
+
+    /* Texto selección */
+    ::selection {
+      background: var(--amarillo-ensaimada);
+      color: var(--negro-tinta);
+    }
+  </style>
+</head>
+<body class="bg-lino-crudo text-negro-tinta">
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="navbar fixed top-0 left-0 right-0 z-50 text-crema-brioche">
+    <div class="max-w-7xl mx-auto px-5 md:px-10 py-3 md:py-4 flex items-center justify-between">
+      <a href="#hero" class="font-display text-xl md:text-2xl tracking-tight" aria-label="Caudal, ir al inicio">CAUDAL</a>
+      <ul class="hidden md:flex items-center gap-8 font-body text-sm">
+        <li><a href="#carta" class="hover:text-amarillo-ensaimada transition-colors">Carta</a></li>
+        <li><a href="#lugar" class="hover:text-amarillo-ensaimada transition-colors">Lugar</a></li>
+        <li><a href="#ubicacion" class="hover:text-amarillo-ensaimada transition-colors">Ubicación</a></li>
+        <li>
+          <a href="#reservas" class="btn-primary px-4 py-2 rounded font-semibold">Reservar</a>
+        </li>
+      </ul>
+      <button id="menu-toggle" class="md:hidden p-2 -mr-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-drawer">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div id="drawer-backdrop" class="drawer-backdrop md:hidden fixed inset-0 bg-negro-tinta/60 z-40"></div>
+
+    <div id="mobile-drawer" class="drawer md:hidden fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-verde-parana-dark shadow-2xl z-50" aria-hidden="true">
+      <div class="flex justify-end p-5">
+        <button id="menu-close" class="p-2 -mr-2" aria-label="Cerrar menú">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <ul class="flex flex-col gap-2 px-6 font-body text-lg">
+        <li><a href="#carta" class="drawer-link block py-3 border-b border-crema-brioche/10">Carta</a></li>
+        <li><a href="#lugar" class="drawer-link block py-3 border-b border-crema-brioche/10">Lugar</a></li>
+        <li><a href="#ubicacion" class="drawer-link block py-3 border-b border-crema-brioche/10">Ubicación</a></li>
+        <li><a href="#reservas" class="drawer-link block py-3 mt-2 text-naranja-sampedrina font-semibold">Reservar</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <!-- MIDJOURNEY/FLUX PROMPT for /assets/hero.jpg (1920x1080):
+  Editorial photograph of a smash burger brewpub interior at dusk in San Pedro Argentina, deep river-green walls hex 2B4A3E, cream brioche accent hex E8D9B8, long communal table of solid quebracho wood in the center with three industrial pendant lamps aligned above casting warm 2700K light, brushed stainless steel bar on the right with six beer taps visible, semi-open kitchen with a flat-top griddle showing smash patty crust forming behind tempered glass, microcement sand-colored floor, black tinta ceiling with exposed beams, horizontal black line running across the left wall at seated eye height as a graphic element, natural ambient light from side windows mixed with pendant lamp glow, medium-high contrast warm editorial postproduction, slight film grain, no people visible, no branded signage, no text, architectural interior photography style, 35mm equivalent, f/4, blue-hour transition, ultra sharp, high-resolution, production-grade
+  -->
+  <header id="hero" class="hero-bg min-h-screen flex flex-col items-center justify-center text-center px-6 relative">
+    <div class="flex flex-col items-center gap-5 md:gap-6 max-w-4xl pt-16">
+      <img src="/assets/logo.svg" alt="Caudal, hamburguesería y birrería en San Pedro" width="240" height="80" class="w-[160px] md:w-[240px] h-auto hero-anim hero-anim-1" onerror="this.style.display='none'">
+      <h1 class="font-display hero-title text-crema-brioche hero-anim hero-anim-2">CAUDAL</h1>
+      <div role="presentation" class="linea-caudal linea-caudal-hero max-w-md hero-anim hero-anim-3"></div>
+      <p class="text-crema-brioche italic text-[20px] md:text-[24px] hero-anim hero-anim-3">La mesa del río.</p>
+
+      <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center mt-4 md:mt-6 hero-anim hero-anim-4 w-full sm:w-auto">
+        <a href="https://wa.me/5491154596266?text=Hola%20Caudal%2C%20quiero%20reservar%20una%20mesa"
+           target="_blank" rel="noopener"
+           class="btn-primary px-6 py-3 rounded font-semibold flex items-center justify-center gap-2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Reservar por WhatsApp
+        </a>
+        <a href="#carta"
+           class="btn-outline px-6 py-3 rounded font-semibold">
+          Ver la carta
+        </a>
+      </div>
+
+      <p class="text-crema-brioche/75 text-xs md:text-sm mt-2 md:mt-4 hero-anim hero-anim-5">Martes a domingo · Centro de San Pedro, Buenos Aires</p>
+    </div>
+
+    <a href="#manifiesto" aria-label="Bajar a la siguiente sección" class="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 scroll-indicator text-crema-brioche">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </a>
+  </header>
+
+  <!-- MANIFIESTO -->
+  <section id="manifiesto" class="bg-verde-parana text-crema-brioche py-16 md:py-24 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="font-display text-naranja-sampedrina text-xs md:text-sm tracking-[0.2em] reveal">MANIFIESTO</p>
+      <p class="mt-6 md:mt-8 max-w-3xl mx-auto text-[17px] md:text-[22px] leading-[1.65] reveal delay-1">
+        Abrimos Caudal porque en San Pedro no había un lugar para sentarse un martes a la noche, pedir una smash bien hecha y tomar la birra que hicieron a diez cuadras. Ahora sí. El pan lo amasa Bonetti. El surubí lo pesca Roberto. La Obligado y la Soberana son nuestras. Ponele que es la mesa larga del centro donde cabemos todos — el que viene de la oficina, el que baja del Paraná con la caña, el que arrancó en Rosario y vuelve los domingos. Abrimos de martes a domingo. La puerta está ahí.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 md:mt-16 text-left">
+        <div class="reveal delay-1">
+          <p class="font-display text-amarillo-ensaimada text-5xl">01</p>
+          <h3 class="font-display text-2xl mt-3">Oficio</h3>
+          <p class="text-crema-brioche/70 mt-2 text-[15px]">Se ejecuta bien o no se ejecuta.</p>
+        </div>
+        <div class="reveal delay-2">
+          <p class="font-display text-amarillo-ensaimada text-5xl">02</p>
+          <h3 class="font-display text-2xl mt-3">Barrio</h3>
+          <p class="text-crema-brioche/70 mt-2 text-[15px]">Sampedrino de arriba a abajo.</p>
+        </div>
+        <div class="reveal delay-3">
+          <p class="font-display text-amarillo-ensaimada text-5xl">03</p>
+          <h3 class="font-display text-2xl mt-3">Sin pose</h3>
+          <p class="text-crema-brioche/70 mt-2 text-[15px]">Directo, sin jerga, sin montajes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LA CARTA -->
+  <section id="carta" class="bg-lino-crudo py-16 md:py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <p class="font-display text-naranja-sampedrina text-xs md:text-sm tracking-[0.2em] reveal">SMASH + BIRRA + RÍO</p>
+        <h2 class="font-display section-title text-verde-parana mt-4 reveal delay-1">La carta</h2>
+        <div role="presentation" class="linea-caudal max-w-xs mx-auto mt-4 reveal delay-2" style="height:2px;background:var(--verde-parana);"></div>
+      </div>
+
+      <!-- Plato ancla destacado -->
+      <article class="plato-ancla reveal-scale bg-verde-parana text-crema-brioche rounded overflow-hidden shadow-lg mb-10 md:mb-12 grid grid-cols-1 md:grid-cols-2">
+        <div class="ancla-img-wrap md:aspect-auto md:min-h-[320px]">
+          <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=1200&q=80&auto=format&fit=crop"
+               alt="La Simple, smash burger 160 g con cheddar y clásicos servida en tabla de madera"
+               class="ancla-img" loading="lazy" width="1200" height="750"
+               onerror="this.style.opacity='0';this.parentElement.style.background='#22382F';">
+        </div>
+        <div class="p-6 md:p-10 flex flex-col justify-center">
+          <span class="inline-block bg-amarillo-ensaimada text-negro-tinta text-[11px] font-semibold tracking-[0.15em] px-2 py-1 rounded-sm mb-4 self-start">ANCLA</span>
+          <div class="flex items-start justify-between gap-4">
+            <h3 class="font-display text-3xl md:text-4xl">La Simple</h3>
+            <span class="font-body font-semibold text-2xl md:text-3xl text-naranja-sampedrina whitespace-nowrap">$11.500</span>
+          </div>
+          <p class="mt-3 text-[16px] md:text-[17px] text-crema-brioche/90 leading-[1.55]">
+            <em>Smash 160 g, cheddar, lechuga, tomate, cebolla, salsa de la casa. El punto de partida.</em>
+          </p>
+        </div>
+      </article>
+
+      <!-- Grid 6 platos con foto cada uno -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+
+        <article class="plato-card reveal delay-1 bg-crema-brioche border border-verde-parana/15 rounded">
+          <div class="plato-img-wrap">
+            <img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=800&q=80&auto=format&fit=crop"
+                 alt="La Obligado, smash con milanesa de surubí, rúcula y mayo de verdeo"
+                 class="plato-img" loading="lazy" width="800" height="500"
+                 onerror="this.style.opacity='0';">
+          </div>
+          <div class="p-5 md:p-6">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-display text-[22px] text-verde-parana">La Obligado</h3>
+              <span class="font-body font-semibold text-[18px] text-naranja-sampedrina whitespace-nowrap">$16.500</span>
+            </div>
+            <span class="inline-block bg-amarillo-ensaimada text-negro-tinta text-[10px] font-semibold tracking-[0.15em] px-2 py-1 rounded-sm mt-3">FIRMA DE LA CASA</span>
+            <p class="mt-3 text-[15px] leading-[1.5]">Smash a la plancha + milanesa crocante de surubí del Paraná, cheddar, rúcula, mayo de verdeo. Homenaje a la batalla.</p>
+          </div>
+        </article>
+
+        <article class="plato-card reveal delay-2 bg-crema-brioche border border-verde-parana/15 rounded">
+          <div class="plato-img-wrap">
+            <img src="https://images.unsplash.com/photo-1550317138-10000687a72b?w=800&q=80&auto=format&fit=crop"
+                 alt="La Doble, doble smash con doble cheddar, panceta y cebolla caramelizada"
+                 class="plato-img" loading="lazy" width="800" height="500"
+                 onerror="this.style.opacity='0';">
+          </div>
+          <div class="p-5 md:p-6">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-display text-[22px] text-verde-parana">La Doble</h3>
+              <span class="font-body font-semibold text-[18px] text-naranja-sampedrina whitespace-nowrap">$15.500</span>
+            </div>
+            <p class="mt-3 text-[15px] leading-[1.5]">Doble smash 160 g + doble cheddar + panceta + cebolla caramelizada. Para tener hambre.</p>
+          </div>
+        </article>
+
+        <article class="plato-card reveal delay-3 bg-crema-brioche border border-verde-parana/15 rounded">
+          <div class="plato-img-wrap">
+            <img src="https://images.unsplash.com/photo-1529042410759-befb1204b468?w=800&q=80&auto=format&fit=crop"
+                 alt="Bondi al Golden, bondiola braseada en cerveza con cheddar y pickles"
+                 class="plato-img" loading="lazy" width="800" height="500"
+                 onerror="this.style.opacity='0';">
+          </div>
+          <div class="p-5 md:p-6">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-display text-[22px] text-verde-parana">Bondi al Golden</h3>
+              <span class="font-body font-semibold text-[18px] text-naranja-sampedrina whitespace-nowrap">$14.500</span>
+            </div>
+            <p class="mt-3 text-[15px] leading-[1.5]">Bondiola braseada 4 hs en cerveza Golden de Obligado, cheddar, cebolla morada, pickles. La que no es burger pero se come con las manos.</p>
+          </div>
+        </article>
+
+        <article class="plato-card reveal delay-1 bg-crema-brioche border border-verde-parana/15 rounded">
+          <div class="plato-img-wrap">
+            <img src="https://images.unsplash.com/photo-1565299543923-37dd37887442?w=800&q=80&auto=format&fit=crop"
+                 alt="Milanesa de surubí con papas rústicas, romero y limón asado"
+                 class="plato-img" loading="lazy" width="800" height="500"
+                 onerror="this.style.opacity='0';">
+          </div>
+          <div class="p-5 md:p-6">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-display text-[22px] text-verde-parana">Milanesa de surubí</h3>
+              <span class="font-body font-semibold text-[18px] text-naranja-sampedrina whitespace-nowrap">$15.500</span>
+            </div>
+            <p class="mt-3 text-[15px] leading-[1.5]">Milanesa generosa de surubí del Paraná rebozada en panko, papas rústicas con romero y limón asado. Sin pan, al plato.</p>
+          </div>
+        </article>
+
+        <article class="plato-card reveal delay-2 bg-crema-brioche border border-verde-parana/15 rounded">
+          <div class="plato-img-wrap">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800&q=80&auto=format&fit=crop"
+                 alt="Ensaimada caliente con helado de dulce de leche derritiéndose encima"
+                 class="plato-img" loading="lazy" width="800" height="500"
+                 onerror="this.style.opacity='0';">
+          </div>
+          <div class="p-5 md:p-6">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-display text-[22px] text-verde-parana">Ensaimada caliente con helado</h3>
+              <span class="font-body font-semibold text-[18px] text-naranja-sampedrina whitespace-nowrap">$8.500</span>
+            </div>
+            <span class="inline-block bg-amarillo-ensaimada text-negro-tinta text-[10px] font-semibold tracking-[0.15em] px-2 py-1 rounded-sm mt-3">POSTRE ESTRELLA</span>
+            <p class="mt-3 text-[15px] leading-[1.5]">Ensaimada individual apenas tibia, abierta, con helado de dulce de leche derritiéndose encima. Identidad sampedrina en cuchara.</p>
+          </div>
+        </article>
+
+        <article class="plato-card reveal delay-3 bg-crema-brioche border border-verde-parana/15 rounded">
+          <div class="plato-img-wrap">
+            <img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?w=800&q=80&auto=format&fit=crop"
+                 alt="La Verde, burger veggie de garbanzo y remolacha con rúcula y tomate"
+                 class="plato-img" loading="lazy" width="800" height="500"
+                 onerror="this.style.opacity='0';">
+          </div>
+          <div class="p-5 md:p-6">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-display text-[22px] text-verde-parana">La Verde (veggie)</h3>
+              <span class="font-body font-semibold text-[18px] text-naranja-sampedrina whitespace-nowrap">$11.000</span>
+            </div>
+            <p class="mt-3 text-[15px] leading-[1.5]">Medallón de garbanzo, remolacha y avena en pan brioche, cheddar, rúcula, tomate, mayo de mostaza. Opción vegana sin cheddar.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="text-center mt-10 md:mt-12 reveal">
+        <!-- TODO: subir carta.pdf a /assets/ -->
+        <a href="/assets/carta.pdf"
+           class="inline-block bg-verde-parana text-crema-brioche px-6 py-3 rounded font-semibold hover:opacity-90 transition-opacity">
+          Ver carta completa (PDF)
+        </a>
+        <p class="mt-4 text-sm text-negro-tinta/60">La carta cambia según temporada y lo que trae el río.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EL LUGAR -->
+  <section id="lugar" class="bg-verde-parana text-crema-brioche py-16 md:py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <p class="font-display text-naranja-sampedrina text-xs md:text-sm tracking-[0.2em] reveal">BARRA, MESA LARGA, COCINA A LA VISTA</p>
+        <h2 class="font-display section-title text-crema-brioche mt-4 reveal delay-1">El lugar</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+
+        <div class="grid grid-cols-2 gap-3 md:gap-4">
+          <!-- Mesa comunitaria (vertical) -->
+          <!-- TODO para prod: reemplazar por /assets/lugar-1.jpg cuando esté listo -->
+          <div class="lugar-img-wrap aspect-[4/5] reveal-scale">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80&auto=format&fit=crop"
+                 alt="Mesa comunitaria de quebracho con platos y pintas bajo luces colgantes cálidas"
+                 class="lugar-img" loading="lazy" width="800" height="1000"
+                 onerror="this.style.opacity='0';">
+          </div>
+          <!-- Barra con canillas (vertical) -->
+          <div class="lugar-img-wrap aspect-[4/5] reveal-scale delay-1">
+            <img src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=800&q=80&auto=format&fit=crop"
+                 alt="Barra de acero con canillas de cerveza artesanal sirviendo una pinta"
+                 class="lugar-img" loading="lazy" width="800" height="1000"
+                 onerror="this.style.opacity='0';">
+          </div>
+          <!-- Plancha / plato fuerte (horizontal, col-span-2) -->
+          <div class="lugar-img-wrap aspect-[4/3] col-span-2 reveal-scale delay-2">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&q=80&auto=format&fit=crop"
+                 alt="Plato servido con burger y guarnición al centro de la mesa"
+                 class="lugar-img" loading="lazy" width="1200" height="900"
+                 onerror="this.style.opacity='0';">
+          </div>
+          <!-- Ambiente tarde / cerveza (horizontal, col-span-2) -->
+          <div class="lugar-img-wrap aspect-[4/3] col-span-2 reveal-scale delay-3">
+            <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1200&q=80&auto=format&fit=crop"
+                 alt="Ambiente del salón a la hora del atardecer con mesas y luces cálidas"
+                 class="lugar-img" loading="lazy" width="1200" height="900"
+                 onerror="this.style.opacity='0';">
+          </div>
+        </div>
+
+        <div class="max-w-[520px] space-y-5 md:space-y-6 text-[17px] md:text-[19px] leading-[1.7] reveal delay-2">
+          <p>La plancha trabaja detrás del vidrio. La mesa larga de quebracho está en el centro del salón. Las seis canillas de Obligado y Soberana se ven desde la puerta. El pan de Bonetti llega a las 9 de la mañana, todos los días.</p>
+          <p>La música es rock nacional, el volumen deja conversar, el calor llega en invierno y la vereda se llena en verano.</p>
+          <p class="font-semibold text-amarillo-ensaimada">Abrimos martes a domingo. Lunes descansamos, como el barrio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DÓNDE ESTAMOS -->
+  <section id="ubicacion" class="bg-lino-crudo py-16 md:py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-10 md:mb-12">
+        <h2 class="font-display section-title text-verde-parana reveal">Dónde estamos</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+        <div class="space-y-6">
+          <!-- TODO: reemplazar [calle + número] con la dirección real del local -->
+          <h3 class="font-display text-[22px] md:text-[28px] text-verde-parana reveal">TODO: [calle + número], San Pedro, Buenos Aires</h3>
+
+          <dl class="space-y-3 reveal delay-1">
+            <div class="flex flex-col md:flex-row md:gap-4">
+              <dt class="font-body font-semibold text-verde-parana md:w-48">Lunes</dt>
+              <dd>Cerrado</dd>
+            </div>
+            <div class="flex flex-col md:flex-row md:gap-4">
+              <dt class="font-body font-semibold text-verde-parana md:w-48">Martes a domingo</dt>
+              <dd>Almuerzo 12:00 a 15:30</dd>
+            </div>
+            <div class="flex flex-col md:flex-row md:gap-4">
+              <dt class="font-body font-semibold text-verde-parana md:w-48">Martes a domingo</dt>
+              <dd>Cena 19:30 a 23:30</dd>
+            </div>
+          </dl>
+
+          <p class="text-[15px] md:text-[16px] reveal delay-2">A dos cuadras de la Peatonal del Centenario, subiendo desde la costanera. Si venís por la ruta 9, tomá la bajada al centro y girá en <strong>TODO: [calle]</strong>.</p>
+
+          <div class="flex flex-wrap gap-3 reveal delay-3">
+            <!-- TODO: reemplazar TODO_COORDS con query real de Google Maps cuando esté la dirección -->
+            <a href="https://maps.google.com/?q=San+Pedro+Buenos+Aires"
+               target="_blank" rel="noopener"
+               class="bg-naranja-sampedrina text-crema-brioche px-5 py-3 rounded font-semibold hover:opacity-90 transition-opacity">
+              Cómo llegar
+            </a>
+            <a href="tel:+5491154596266"
+               class="border-2 border-verde-parana text-verde-parana px-5 py-3 rounded font-semibold hover:bg-verde-parana hover:text-crema-brioche transition-colors">
+              Llamar
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal-scale delay-2">
+          <!-- Mapa provisorio centrado en San Pedro, BA. TODO: cambiar src por el embed del local exacto. -->
+          <iframe src="https://www.google.com/maps?q=San+Pedro,+Buenos+Aires&output=embed"
+                  width="100%"
+                  height="380"
+                  style="border:0;"
+                  allowfullscreen
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  aria-label="Ubicación de Caudal en San Pedro"
+                  class="rounded w-full"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVAS -->
+  <section id="reservas" class="bg-verde-parana text-crema-brioche py-16 md:py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <p class="font-display text-naranja-sampedrina text-xs md:text-sm tracking-[0.2em] reveal">WHATSAPP ES EL MEJOR CAMINO</p>
+        <h2 class="font-display section-title text-crema-brioche mt-4 reveal delay-1">Reservá tu mesa</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div class="space-y-5 reveal">
+          <a href="https://wa.me/5491154596266?text=Hola%20Caudal%2C%20quiero%20reservar%20una%20mesa"
+             target="_blank" rel="noopener"
+             class="btn-primary flex items-center justify-center gap-3 w-full px-6 py-5 md:py-6 rounded font-semibold text-base md:text-lg">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            Escribinos por WhatsApp
+          </a>
+
+          <p class="text-crema-brioche/75 text-[14px] md:text-[15px]">Respondemos de martes a domingo, 10 a 23 hs. A veces tardamos un cacho cuando estamos en cocina.</p>
+
+          <div class="linea-caudal" style="background:rgba(232, 217, 184, 0.3);height:1px;"></div>
+
+          <a href="tel:+5491154596266" class="flex items-center gap-3 hover:text-amarillo-ensaimada transition-colors">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>+54 9 11 5459-6266</span>
+          </a>
+
+          <!-- TODO: confirmar handle definitivo de Instagram (reservar @caudal.sanpedro) -->
+          <a href="https://instagram.com/caudal.sanpedro" target="_blank" rel="noopener" class="flex items-center gap-3 hover:text-amarillo-ensaimada transition-colors">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+            </svg>
+            <span>@caudal.sanpedro</span>
+          </a>
+
+          <a href="mailto:alannaimtapia@gmail.com" class="flex items-center gap-3 hover:text-amarillo-ensaimada transition-colors break-all">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>alannaimtapia@gmail.com</span>
+          </a>
+        </div>
+
+        <form id="form-reserva" class="p-5 md:p-8 rounded space-y-4 reveal delay-2" style="background:rgba(232, 217, 184, 0.08);border:1px solid rgba(232, 217, 184, 0.35);" novalidate>
+          <div>
+            <label for="nombre" class="block text-sm font-semibold mb-1 text-crema-brioche">Nombre</label>
+            <input id="nombre" name="nombre" type="text" required class="form-input" autocomplete="name">
+          </div>
+          <div>
+            <label for="telefono" class="block text-sm font-semibold mb-1 text-crema-brioche">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" required class="form-input" autocomplete="tel" inputmode="tel">
+          </div>
+          <div class="grid grid-cols-2 gap-3 md:gap-4">
+            <div>
+              <label for="fecha" class="block text-sm font-semibold mb-1 text-crema-brioche">Fecha</label>
+              <input id="fecha" name="fecha" type="date" required class="form-input">
+            </div>
+            <div>
+              <label for="hora" class="block text-sm font-semibold mb-1 text-crema-brioche">Hora</label>
+              <input id="hora" name="hora" type="time" required class="form-input">
+            </div>
+          </div>
+          <div>
+            <label for="cubiertos" class="block text-sm font-semibold mb-1 text-crema-brioche">Cubiertos</label>
+            <input id="cubiertos" name="cubiertos" type="number" min="1" max="20" required class="form-input" inputmode="numeric">
+          </div>
+          <div>
+            <label for="comentarios" class="block text-sm font-semibold mb-1 text-crema-brioche">Comentarios</label>
+            <textarea id="comentarios" name="comentarios" rows="3" class="form-textarea"></textarea>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 pt-1">
+            <button type="submit" data-dest="wa" class="btn-primary flex-1 py-3 rounded font-semibold">
+              Mandar por WhatsApp
+            </button>
+            <button type="submit" data-dest="mail" class="flex-1 py-3 rounded font-semibold border-2 border-crema-brioche text-crema-brioche hover:bg-crema-brioche hover:text-verde-parana transition-colors">
+              Mandar por email
+            </button>
+          </div>
+          <p class="text-crema-brioche/75 text-[13px] md:text-sm">Te confirmamos por WhatsApp en el día. Si es para hoy o mañana, mejor escribinos directo.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-negro-tinta text-crema-brioche py-14 md:py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        <div>
+          <img src="/assets/logo-mono.svg" alt="Caudal" style="height:44px" class="h-11 w-auto" onerror="this.outerHTML='<span class=\'font-display text-3xl text-crema-brioche\'>CAUDAL</span>'">
+          <p class="mt-4 text-crema-brioche/80 text-[14px] leading-[1.6]">
+            Hamburguesería y birrería en el centro de San Pedro · Smash a la plancha, cerveza artesanal local, pan amasado a dos cuadras.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-display text-xs text-amarillo-ensaimada tracking-[0.2em] mb-4">REDES</h3>
+          <ul class="space-y-3 text-[14px]">
+            <li>
+              <a href="https://instagram.com/caudal.sanpedro" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-amarillo-ensaimada transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+                </svg>
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/5491154596266" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-amarillo-ensaimada transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487 2.981 1.287 2.981.858 3.518.804.536-.055 1.757-.718 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                WhatsApp
+              </a>
+            </li>
+            <li>
+              <a href="https://maps.google.com/?q=San+Pedro+Buenos+Aires" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-amarillo-ensaimada transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Google Maps
+              </a>
+            </li>
+            <li>
+              <a href="mailto:alannaimtapia@gmail.com" class="flex items-center gap-2 hover:text-amarillo-ensaimada transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                Email
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-display text-xs text-amarillo-ensaimada tracking-[0.2em] mb-4">DÓNDE</h3>
+          <p class="text-[14px] text-crema-brioche/80 mb-3">TODO: [calle + número]<br>San Pedro, Buenos Aires</p>
+          <p class="text-[14px] text-crema-brioche/80 mb-4">Martes a domingo<br>12:00 – 15:30 · 19:30 – 23:30</p>
+          <p class="font-display text-xs text-amarillo-ensaimada tracking-[0.2em]">HECHO EN SAN PEDRO</p>
+        </div>
+      </div>
+
+      <div class="mt-10 md:mt-12 pt-6 border-t border-crema-brioche/15 text-center">
+        <p class="text-xs text-crema-brioche/55">© <span id="year"></span> Caudal · San Pedro · La mesa del río.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/5491154596266?text=Hola%20Caudal%2C%20quiero%20reservar%20una%20mesa"
+     target="_blank" rel="noopener"
+     class="wa-float" aria-label="Contactar por WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Navbar scroll state
+    (function() {
+      var nav = document.getElementById('navbar');
+      var onScroll = function() {
+        if (window.scrollY > 24) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+    // Mobile drawer
+    (function() {
+      var toggle = document.getElementById('menu-toggle');
+      var close = document.getElementById('menu-close');
+      var drawer = document.getElementById('mobile-drawer');
+      var backdrop = document.getElementById('drawer-backdrop');
+      var links = document.querySelectorAll('.drawer-link');
+
+      function open() {
+        drawer.classList.add('open');
+        backdrop.classList.add('open');
+        drawer.setAttribute('aria-hidden', 'false');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeDrawer() {
+        drawer.classList.remove('open');
+        backdrop.classList.remove('open');
+        drawer.setAttribute('aria-hidden', 'true');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      toggle.addEventListener('click', open);
+      close.addEventListener('click', closeDrawer);
+      backdrop.addEventListener('click', closeDrawer);
+      links.forEach(function(l) { l.addEventListener('click', closeDrawer); });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+      });
+    })();
+
+    // Reveal on scroll
+    (function() {
+      var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var items = document.querySelectorAll('.reveal, .reveal-scale');
+      if (prefersReducedMotion) {
+        items.forEach(function(el) { el.classList.add('is-visible'); });
+        return;
+      }
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function(el) { el.classList.add('is-visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+      items.forEach(function(el) { observer.observe(el); });
+    })();
+
+    // Fecha mínima = hoy
+    (function() {
+      var fechaInput = document.getElementById('fecha');
+      if (fechaInput) {
+        var today = new Date().toISOString().split('T')[0];
+        fechaInput.setAttribute('min', today);
+      }
+    })();
+
+    // Submit: WhatsApp o email
+    (function() {
+      var form = document.getElementById('form-reserva');
+      if (!form) return;
+
+      var clickedDest = 'wa';
+      form.querySelectorAll('button[type="submit"]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          clickedDest = btn.getAttribute('data-dest') || 'wa';
+        });
+      });
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var required = ['nombre', 'telefono', 'fecha', 'hora', 'cubiertos'];
+        var valid = true;
+        required.forEach(function(name) {
+          var input = document.getElementById(name);
+          if (!input.value.trim()) {
+            input.setAttribute('aria-invalid', 'true');
+            valid = false;
+          } else {
+            input.removeAttribute('aria-invalid');
+          }
+        });
+        if (!valid) {
+          var firstInvalid = form.querySelector('[aria-invalid="true"]');
+          if (firstInvalid) firstInvalid.focus();
+          return;
+        }
+
+        var nombre = document.getElementById('nombre').value.trim();
+        var telefono = document.getElementById('telefono').value.trim();
+        var fecha = document.getElementById('fecha').value;
+        var hora = document.getElementById('hora').value;
+        var cubiertos = document.getElementById('cubiertos').value;
+        var comentarios = document.getElementById('comentarios').value.trim();
+
+        if (clickedDest === 'wa') {
+          var msg = 'Hola Caudal, quiero reservar una mesa:\n' +
+                    '• Nombre: ' + nombre + '\n' +
+                    '• Teléfono: ' + telefono + '\n' +
+                    '• Fecha: ' + fecha + '\n' +
+                    '• Hora: ' + hora + '\n' +
+                    '• Cubiertos: ' + cubiertos +
+                    (comentarios ? '\n• Comentarios: ' + comentarios : '');
+          var url = 'https://wa.me/5491154596266?text=' + encodeURIComponent(msg);
+          window.open(url, '_blank', 'noopener');
+        } else {
+          var subject = 'Reserva Caudal - ' + nombre;
+          var body = 'Nombre: ' + nombre + '\n' +
+                     'Teléfono: ' + telefono + '\n' +
+                     'Fecha: ' + fecha + '\n' +
+                     'Hora: ' + hora + '\n' +
+                     'Cubiertos: ' + cubiertos + '\n' +
+                     'Comentarios: ' + (comentarios || '-');
+          var mailto = 'mailto:alannaimtapia@gmail.com?subject=' +
+                       encodeURIComponent(subject) +
+                       '&body=' + encodeURIComponent(body);
+          window.location.href = mailto;
+        }
+      });
+
+      ['nombre', 'telefono', 'fecha', 'hora', 'cubiertos'].forEach(function(name) {
+        var input = document.getElementById(name);
+        if (input) {
+          input.addEventListener('input', function() {
+            if (input.value.trim()) input.removeAttribute('aria-invalid');
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

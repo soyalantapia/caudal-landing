@@ -355,7 +355,8 @@
   <nav id="navbar" class="navbar fixed top-0 left-0 right-0 z-50 text-crema-brioche">
     <div class="max-w-7xl mx-auto px-5 md:px-10 py-3 md:py-4 flex items-center justify-between">
       <a href="#hero" class="font-display text-xl md:text-2xl tracking-tight" aria-label="Caudal, ir al inicio">CAUDAL</a>
-      <ul class="hidden md:flex items-center gap-8 font-body text-sm">
+      <ul class="hidden md:flex items-center gap-6 lg:gap-8 font-body text-sm">
+        <li><a href="#historia" class="hover:text-amarillo-ensaimada transition-colors">Historia</a></li>
         <li><a href="#carta" class="hover:text-amarillo-ensaimada transition-colors">Carta</a></li>
         <li><a href="#lugar" class="hover:text-amarillo-ensaimada transition-colors">Lugar</a></li>
         <li><a href="#ubicacion" class="hover:text-amarillo-ensaimada transition-colors">Ubicación</a></li>
@@ -373,9 +374,9 @@
     </div>
 
     <!-- Mobile drawer -->
-    <div id="drawer-backdrop" class="drawer-backdrop md:hidden fixed inset-0 bg-negro-tinta/60 z-40"></div>
+    <div id="drawer-backdrop" class="drawer-backdrop md:hidden fixed inset-0 h-screen bg-negro-tinta/70 z-40"></div>
 
-    <div id="mobile-drawer" class="drawer md:hidden fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-verde-parana-dark shadow-2xl z-50" aria-hidden="true">
+    <div id="mobile-drawer" class="drawer md:hidden fixed top-0 right-0 h-screen w-72 max-w-[85vw] shadow-2xl z-50" style="background:#1F3830" aria-hidden="true">
       <div class="flex justify-end p-5">
         <button id="menu-close" class="p-2 -mr-2" aria-label="Cerrar menú">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -385,6 +386,7 @@
         </button>
       </div>
       <ul class="flex flex-col gap-2 px-6 font-body text-lg">
+        <li><a href="#historia" class="drawer-link block py-3 border-b border-crema-brioche/10">Historia</a></li>
         <li><a href="#carta" class="drawer-link block py-3 border-b border-crema-brioche/10">Carta</a></li>
         <li><a href="#lugar" class="drawer-link block py-3 border-b border-crema-brioche/10">Lugar</a></li>
         <li><a href="#ubicacion" class="drawer-link block py-3 border-b border-crema-brioche/10">Ubicación</a></li>
@@ -451,6 +453,34 @@
           <p class="font-display text-amarillo-ensaimada text-4xl md:text-5xl">03</p>
           <h3 class="font-display text-2xl mt-3">Sin pose</h3>
           <p class="text-crema-brioche/70 mt-2 text-[15px]">Directo, sin jerga, sin montajes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORIA -->
+  <section id="historia" class="bg-negro-tinta text-crema-brioche py-16 md:py-24 px-6 overflow-hidden">
+    <div class="max-w-5xl mx-auto">
+      <p class="font-display text-naranja-sampedrina text-xs md:text-sm tracking-[0.2em] reveal">NUESTRA HISTORIA</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 md:gap-14 items-start mt-6 md:mt-10">
+
+        <!-- Columna izquierda: fecha grande en Archivo Black -->
+        <div class="reveal">
+          <p class="font-display text-[110px] md:text-[180px] leading-[0.85] text-amarillo-ensaimada tracking-tighter">2026</p>
+          <p class="font-display text-crema-brioche/70 text-sm tracking-[0.25em] mt-3 md:mt-4">MARZO</p>
+          <div role="presentation" class="linea-caudal mt-5 md:mt-6" style="background:var(--crema-brioche);opacity:0.25;max-width:120px;"></div>
+        </div>
+
+        <!-- Columna derecha: historia -->
+        <div class="space-y-5 text-[17px] md:text-[19px] leading-[1.7] max-w-2xl">
+          <p class="reveal delay-1">Caudal abrió sus puertas en <strong class="text-amarillo-ensaimada">marzo de 2026</strong>. Detrás está Alan Tapia, emprendedor sampedrino que venía dando vueltas a una misma idea: San Pedro tiene todo para ser un punto importante en el mapa gastronómico del litoral.</p>
+
+          <p class="reveal delay-2">El río que pasa al lado. La ensaimada que ya es patrimonio. La cerveza que hacen Obligado y Soberana a diez cuadras. El pan que amasa Bonetti desde hace décadas. Cada pieza estaba ahí, pero faltaba una mesa donde juntar todo eso bajo un mismo techo, sin pose y sin traducirlo a otra cosa.</p>
+
+          <p class="reveal delay-3">Caudal es esa mesa. No inventamos nada: ordenamos lo que ya estaba pasando en el barrio, le pusimos plancha, seis canillas y una puerta abierta de martes a domingo.</p>
+
+          <p class="reveal delay-3 text-amarillo-ensaimada font-semibold text-[18px] md:text-[20px] pt-2">— Alan Tapia</p>
         </div>
       </div>
     </div>
@@ -602,51 +632,49 @@
   <!-- EL LUGAR -->
   <section id="lugar" class="bg-verde-parana text-crema-brioche py-16 md:py-24 px-6">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <p class="font-display text-naranja-sampedrina text-xs md:text-sm tracking-[0.2em] reveal">BARRA, MESA LARGA, COCINA A LA VISTA</p>
-        <h2 class="font-display section-title text-crema-brioche mt-4 reveal delay-1">El lugar</h2>
-      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
-
-        <div class="grid grid-cols-2 gap-3 md:gap-4">
-          <!-- Mesa comunitaria (vertical) -->
-          <!-- TODO para prod: reemplazar por /assets/lugar-1.jpg cuando esté listo -->
-          <div class="lugar-img-wrap aspect-[4/5] reveal-scale">
-            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80&auto=format&fit=crop"
-                 alt="Mesa comunitaria de quebracho con platos y pintas bajo luces colgantes cálidas"
-                 class="lugar-img" loading="lazy" width="800" height="1000"
-                 onerror="this.style.opacity='0';">
-          </div>
-          <!-- Barra con canillas (vertical) -->
-          <div class="lugar-img-wrap aspect-[4/5] reveal-scale delay-1">
-            <img src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=800&q=80&auto=format&fit=crop"
-                 alt="Barra de acero con canillas de cerveza artesanal sirviendo una pinta"
-                 class="lugar-img" loading="lazy" width="800" height="1000"
-                 onerror="this.style.opacity='0';">
-          </div>
-          <!-- Plancha / plato fuerte (horizontal, col-span-2) -->
-          <div class="lugar-img-wrap aspect-[4/3] col-span-2 reveal-scale delay-2">
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&q=80&auto=format&fit=crop"
-                 alt="Plato servido con burger y guarnición al centro de la mesa"
-                 class="lugar-img" loading="lazy" width="1200" height="900"
-                 onerror="this.style.opacity='0';">
-          </div>
-          <!-- Ambiente tarde / cerveza (horizontal, col-span-2) -->
-          <div class="lugar-img-wrap aspect-[4/3] col-span-2 reveal-scale delay-3">
-            <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1200&q=80&auto=format&fit=crop"
-                 alt="Ambiente del salón a la hora del atardecer con mesas y luces cálidas"
-                 class="lugar-img" loading="lazy" width="1200" height="900"
-                 onerror="this.style.opacity='0';">
-          </div>
+      <!-- Header + texto en 2 columnas balanceadas (desktop) / stack (mobile) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start mb-10 md:mb-14">
+        <div>
+          <p class="font-display text-naranja-sampedrina text-xs md:text-sm tracking-[0.2em] reveal">BARRA, MESA LARGA, COCINA A LA VISTA</p>
+          <h2 class="font-display section-title text-crema-brioche mt-4 reveal delay-1">El lugar</h2>
         </div>
-
-        <div class="max-w-[520px] space-y-5 md:space-y-6 text-[17px] md:text-[19px] leading-[1.7] reveal delay-2">
+        <div class="space-y-4 md:space-y-5 text-[17px] md:text-[18px] leading-[1.7] reveal delay-2">
           <p>La plancha trabaja detrás del vidrio. La mesa larga de quebracho está en el centro del salón. Las seis canillas de Obligado y Soberana se ven desde la puerta. El pan de Bonetti llega a las 9 de la mañana, todos los días.</p>
           <p>La música es rock nacional, el volumen deja conversar, el calor llega en invierno y la vereda se llena en verano.</p>
           <p class="font-semibold text-amarillo-ensaimada">Abrimos martes a domingo. Lunes descansamos, como el barrio.</p>
         </div>
       </div>
+
+      <!-- Galería full-width: 2 cols en mobile, 4 cols en desktop, mismo crop vertical -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        <!-- TODO: reemplazar estas imágenes temporales de Unsplash por las fotos reales (/assets/lugar-1..4.jpg) -->
+        <div class="lugar-img-wrap aspect-[3/4] reveal-scale">
+          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80&auto=format&fit=crop"
+               alt="Salón con mesa comunitaria bajo luces colgantes cálidas"
+               class="lugar-img" loading="lazy" width="800" height="1067"
+               onerror="this.style.opacity='0';">
+        </div>
+        <div class="lugar-img-wrap aspect-[3/4] reveal-scale delay-1">
+          <img src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=800&q=80&auto=format&fit=crop"
+               alt="Dos pintas de cerveza artesanal contra la luz del atardecer"
+               class="lugar-img" loading="lazy" width="800" height="1067"
+               onerror="this.style.opacity='0';">
+        </div>
+        <div class="lugar-img-wrap aspect-[3/4] reveal-scale delay-2">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80&auto=format&fit=crop"
+               alt="Smash burger recién armada sobre tabla de madera"
+               class="lugar-img" loading="lazy" width="800" height="1067"
+               onerror="this.style.opacity='0';">
+        </div>
+        <div class="lugar-img-wrap aspect-[3/4] reveal-scale delay-3">
+          <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80&auto=format&fit=crop"
+               alt="Ambiente del salón con mesas servidas y luz cálida"
+               class="lugar-img" loading="lazy" width="800" height="1067"
+               onerror="this.style.opacity='0';">
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -659,9 +687,9 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
         <div class="space-y-6">
-          <!-- TODO: reemplazar el bloque de abajo con la dirección real del local (calle + número) -->
-          <h3 class="font-display text-[22px] md:text-[28px] text-verde-parana reveal">Centro de San Pedro, Buenos Aires</h3>
-          <p class="text-[14px] text-negro-tinta/60 reveal delay-1">Dirección exacta y cómo llegar, en breve.</p>
+          <!-- Dirección provisoria del local — ajustar al número exacto cuando esté firmado el contrato -->
+          <h3 class="font-display text-[22px] md:text-[28px] text-verde-parana reveal">Pellegrini 742, San Pedro</h3>
+          <p class="text-[14px] text-negro-tinta/60 reveal delay-1">Buenos Aires · Argentina · A dos cuadras del río.</p>
 
           <dl class="space-y-3 reveal delay-1">
             <div class="flex flex-col md:flex-row md:gap-4">
@@ -681,8 +709,7 @@
           <p class="text-[15px] md:text-[16px] reveal delay-2">A dos cuadras de la Peatonal del Centenario, subiendo desde la costanera. Si venís por la ruta 9, tomá la bajada al centro. Te pasamos la ubicación exacta por WhatsApp cuando reservás.</p>
 
           <div class="flex flex-wrap gap-3 reveal delay-3">
-            <!-- TODO: reemplazar TODO_COORDS con query real de Google Maps cuando esté la dirección -->
-            <a href="https://maps.google.com/?q=San+Pedro+Buenos+Aires"
+            <a href="https://maps.google.com/?q=Pellegrini+742+San+Pedro+Buenos+Aires"
                target="_blank" rel="noopener"
                class="bg-naranja-sampedrina text-crema-brioche px-5 py-3 rounded font-semibold hover:opacity-90 transition-opacity">
               Cómo llegar
@@ -705,7 +732,7 @@
                   referrerpolicy="no-referrer-when-downgrade"
                   aria-label="Mapa del centro de San Pedro, Buenos Aires"
                   class="rounded w-full"></iframe>
-          <p class="mt-3 text-[13px] text-negro-tinta/60"><a href="https://www.google.com/maps?q=San+Pedro+Buenos+Aires" target="_blank" rel="noopener" class="underline hover:text-verde-parana">Abrir en Google Maps</a></p>
+          <p class="mt-3 text-[13px] text-negro-tinta/60"><a href="https://www.google.com/maps?q=Pellegrini+742+San+Pedro+Buenos+Aires" target="_blank" rel="noopener" class="underline hover:text-verde-parana">Abrir en Google Maps</a></p>
         </div>
       </div>
     </div>
@@ -788,14 +815,10 @@
             <textarea id="comentarios" name="comentarios" rows="3" class="form-textarea"></textarea>
           </div>
 
-          <div class="flex flex-col sm:flex-row gap-3 pt-1">
-            <button type="submit" data-dest="wa" class="btn-primary flex-1 py-3 rounded font-semibold">
-              Mandar por WhatsApp
-            </button>
-            <button type="submit" data-dest="mail" class="flex-1 py-3 rounded font-semibold border-2 border-crema-brioche text-crema-brioche hover:bg-crema-brioche hover:text-verde-parana transition-colors">
-              Mandar por email
-            </button>
-          </div>
+          <button type="submit" class="btn-primary w-full py-3 mt-1 rounded font-semibold flex items-center justify-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Mandar por WhatsApp
+          </button>
           <p class="text-crema-brioche/75 text-[13px] md:text-sm">Te confirmamos por WhatsApp en el día. Si es para hoy o mañana, mejor escribinos directo.</p>
         </form>
       </div>
@@ -833,7 +856,7 @@
               </a>
             </li>
             <li>
-              <a href="https://maps.google.com/?q=San+Pedro+Buenos+Aires" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-amarillo-ensaimada transition-colors">
+              <a href="https://maps.google.com/?q=Pellegrini+742+San+Pedro+Buenos+Aires" target="_blank" rel="noopener" class="flex items-center gap-2 hover:text-amarillo-ensaimada transition-colors">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                   <circle cx="12" cy="10" r="3"></circle>
@@ -855,8 +878,7 @@
 
         <div>
           <h3 class="font-display text-xs text-amarillo-ensaimada tracking-[0.2em] mb-4">DÓNDE</h3>
-          <!-- TODO: reemplazar por la dirección exacta del local -->
-          <p class="text-[14px] text-crema-brioche/80 mb-3">Centro de San Pedro<br>Buenos Aires · Argentina</p>
+          <p class="text-[14px] text-crema-brioche/80 mb-3">Pellegrini 742<br>San Pedro, Buenos Aires</p>
           <p class="text-[14px] text-crema-brioche/80 mb-4">Martes a domingo<br>12:00 – 15:30 · 19:30 – 23:30</p>
           <p class="font-display text-xs text-amarillo-ensaimada tracking-[0.2em]">HECHO EN SAN PEDRO</p>
         </div>
@@ -977,17 +999,10 @@
       }
     })();
 
-    // Submit: WhatsApp o email
+    // Submit: manda siempre por WhatsApp con todos los datos pre-populados
     (function() {
       var form = document.getElementById('form-reserva');
       if (!form) return;
-
-      var clickedDest = 'wa';
-      form.querySelectorAll('button[type="submit"]').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          clickedDest = btn.getAttribute('data-dest') || 'wa';
-        });
-      });
 
       form.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -1016,29 +1031,15 @@
         var cubiertos = document.getElementById('cubiertos').value;
         var comentarios = document.getElementById('comentarios').value.trim();
 
-        if (clickedDest === 'wa') {
-          var msg = 'Hola Caudal, quiero reservar una mesa:\n' +
-                    '• Nombre: ' + nombre + '\n' +
-                    '• Teléfono: ' + telefono + '\n' +
-                    '• Fecha: ' + fecha + '\n' +
-                    '• Hora: ' + hora + '\n' +
-                    '• Cubiertos: ' + cubiertos +
-                    (comentarios ? '\n• Comentarios: ' + comentarios : '');
-          var url = 'https://wa.me/5491154596266?text=' + encodeURIComponent(msg);
-          window.open(url, '_blank', 'noopener');
-        } else {
-          var subject = 'Reserva Caudal - ' + nombre;
-          var body = 'Nombre: ' + nombre + '\n' +
-                     'Teléfono: ' + telefono + '\n' +
-                     'Fecha: ' + fecha + '\n' +
-                     'Hora: ' + hora + '\n' +
-                     'Cubiertos: ' + cubiertos + '\n' +
-                     'Comentarios: ' + (comentarios || '-');
-          var mailto = 'mailto:alannaimtapia@gmail.com?subject=' +
-                       encodeURIComponent(subject) +
-                       '&body=' + encodeURIComponent(body);
-          window.location.href = mailto;
-        }
+        var msg = 'Hola Caudal, quiero reservar una mesa:\n' +
+                  '• Nombre: ' + nombre + '\n' +
+                  '• Teléfono: ' + telefono + '\n' +
+                  '• Fecha: ' + fecha + '\n' +
+                  '• Hora: ' + hora + '\n' +
+                  '• Cubiertos: ' + cubiertos +
+                  (comentarios ? '\n• Comentarios: ' + comentarios : '');
+        var url = 'https://wa.me/5491154596266?text=' + encodeURIComponent(msg);
+        window.open(url, '_blank', 'noopener');
       });
 
       ['nombre', 'telefono', 'fecha', 'hora', 'cubiertos'].forEach(function(name) {

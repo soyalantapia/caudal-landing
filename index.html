@@ -299,16 +299,16 @@
 
     /* WhatsApp pulse discreto */
     @keyframes whatsPulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(217, 110, 42, 0.45); }
-      50% { box-shadow: 0 0 0 12px rgba(217, 110, 42, 0); }
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55); }
+      50% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
     }
     .wa-float {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 16px;
+      right: 16px;
       z-index: 40;
-      width: 56px;
-      height: 56px;
+      width: 54px;
+      height: 54px;
       border-radius: 50%;
       background: #25D366;
       color: white;
@@ -317,9 +317,17 @@
       justify-content: center;
       box-shadow: 0 6px 20px -4px rgba(0, 0, 0, 0.3);
       animation: whatsPulse 2.6s ease-in-out infinite;
-      transition: transform 180ms ease-out;
+      transition: transform 180ms ease-out, opacity 220ms ease-out, visibility 0s 220ms;
+      opacity: 1;
     }
     .wa-float:hover { transform: scale(1.08); }
+    /* En hero y sección reservas ya hay CTAs de WhatsApp prominentes — ocultamos el flotante para no duplicar */
+    .wa-float.hidden-cta {
+      opacity: 0;
+      transform: scale(0.85);
+      pointer-events: none;
+      visibility: hidden;
+    }
 
     /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce) {
@@ -391,7 +399,8 @@
   -->
   <header id="hero" class="hero-bg min-h-screen flex flex-col items-center justify-center text-center px-6 relative">
     <div class="flex flex-col items-center gap-5 md:gap-6 max-w-4xl pt-16">
-      <img src="/assets/logo.svg" alt="Caudal, hamburguesería y birrería en San Pedro" width="240" height="80" class="w-[160px] md:w-[240px] h-auto hero-anim hero-anim-1" onerror="this.style.display='none'">
+      <!-- Logo: cuando exista /assets/logo.svg lo toma; si no, el hero ya usa el wordmark grande abajo, así que no mostramos placeholder extra -->
+      <img src="/assets/logo.svg" alt="" aria-hidden="true" width="240" height="80" class="w-[160px] md:w-[220px] h-auto hero-anim hero-anim-1 opacity-0 transition-opacity duration-300" onload="this.classList.remove('opacity-0')" onerror="this.remove()">
       <h1 class="font-display hero-title text-crema-brioche hero-anim hero-anim-2">CAUDAL</h1>
       <div role="presentation" class="linea-caudal linea-caudal-hero max-w-md hero-anim hero-anim-3"></div>
       <p class="text-crema-brioche italic text-[20px] md:text-[24px] hero-anim hero-anim-3">La mesa del río.</p>
@@ -412,7 +421,7 @@
       <p class="text-crema-brioche/75 text-xs md:text-sm mt-2 md:mt-4 hero-anim hero-anim-5">Martes a domingo · Centro de San Pedro, Buenos Aires</p>
     </div>
 
-    <a href="#manifiesto" aria-label="Bajar a la siguiente sección" class="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 scroll-indicator text-crema-brioche">
+    <a href="#manifiesto" aria-label="Bajar a la siguiente sección" class="hidden md:flex absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 scroll-indicator text-crema-brioche">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="6 9 12 15 18 9"></polyline>
       </svg>
@@ -429,17 +438,17 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 md:mt-16 text-left">
         <div class="reveal delay-1">
-          <p class="font-display text-amarillo-ensaimada text-5xl">01</p>
+          <p class="font-display text-amarillo-ensaimada text-4xl md:text-5xl">01</p>
           <h3 class="font-display text-2xl mt-3">Oficio</h3>
           <p class="text-crema-brioche/70 mt-2 text-[15px]">Se ejecuta bien o no se ejecuta.</p>
         </div>
         <div class="reveal delay-2">
-          <p class="font-display text-amarillo-ensaimada text-5xl">02</p>
+          <p class="font-display text-amarillo-ensaimada text-4xl md:text-5xl">02</p>
           <h3 class="font-display text-2xl mt-3">Barrio</h3>
           <p class="text-crema-brioche/70 mt-2 text-[15px]">Sampedrino de arriba a abajo.</p>
         </div>
         <div class="reveal delay-3">
-          <p class="font-display text-amarillo-ensaimada text-5xl">03</p>
+          <p class="font-display text-amarillo-ensaimada text-4xl md:text-5xl">03</p>
           <h3 class="font-display text-2xl mt-3">Sin pose</h3>
           <p class="text-crema-brioche/70 mt-2 text-[15px]">Directo, sin jerga, sin montajes.</p>
         </div>
@@ -650,8 +659,9 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
         <div class="space-y-6">
-          <!-- TODO: reemplazar [calle + número] con la dirección real del local -->
-          <h3 class="font-display text-[22px] md:text-[28px] text-verde-parana reveal">TODO: [calle + número], San Pedro, Buenos Aires</h3>
+          <!-- TODO: reemplazar el bloque de abajo con la dirección real del local (calle + número) -->
+          <h3 class="font-display text-[22px] md:text-[28px] text-verde-parana reveal">Centro de San Pedro, Buenos Aires</h3>
+          <p class="text-[14px] text-negro-tinta/60 reveal delay-1">Dirección exacta y cómo llegar, en breve.</p>
 
           <dl class="space-y-3 reveal delay-1">
             <div class="flex flex-col md:flex-row md:gap-4">
@@ -668,7 +678,7 @@
             </div>
           </dl>
 
-          <p class="text-[15px] md:text-[16px] reveal delay-2">A dos cuadras de la Peatonal del Centenario, subiendo desde la costanera. Si venís por la ruta 9, tomá la bajada al centro y girá en <strong>TODO: [calle]</strong>.</p>
+          <p class="text-[15px] md:text-[16px] reveal delay-2">A dos cuadras de la Peatonal del Centenario, subiendo desde la costanera. Si venís por la ruta 9, tomá la bajada al centro. Te pasamos la ubicación exacta por WhatsApp cuando reservás.</p>
 
           <div class="flex flex-wrap gap-3 reveal delay-3">
             <!-- TODO: reemplazar TODO_COORDS con query real de Google Maps cuando esté la dirección -->
@@ -685,16 +695,17 @@
         </div>
 
         <div class="reveal-scale delay-2">
-          <!-- Mapa provisorio centrado en San Pedro, BA. TODO: cambiar src por el embed del local exacto. -->
-          <iframe src="https://www.google.com/maps?q=San+Pedro,+Buenos+Aires&output=embed"
+          <!-- Mapa provisorio: OpenStreetMap centrado en el centro de San Pedro, BA.
+               TODO: reemplazar por embed exacto de Google Maps cuando esté la dirección del local. -->
+          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-59.7120%2C-33.7090%2C-59.6550%2C-33.6690&amp;layer=mapnik&amp;marker=-33.6808%2C-59.6825"
                   width="100%"
                   height="380"
                   style="border:0;"
-                  allowfullscreen
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
-                  aria-label="Ubicación de Caudal en San Pedro"
+                  aria-label="Mapa del centro de San Pedro, Buenos Aires"
                   class="rounded w-full"></iframe>
+          <p class="mt-3 text-[13px] text-negro-tinta/60"><a href="https://www.google.com/maps?q=San+Pedro+Buenos+Aires" target="_blank" rel="noopener" class="underline hover:text-verde-parana">Abrir en Google Maps</a></p>
         </div>
       </div>
     </div>
@@ -844,7 +855,8 @@
 
         <div>
           <h3 class="font-display text-xs text-amarillo-ensaimada tracking-[0.2em] mb-4">DÓNDE</h3>
-          <p class="text-[14px] text-crema-brioche/80 mb-3">TODO: [calle + número]<br>San Pedro, Buenos Aires</p>
+          <!-- TODO: reemplazar por la dirección exacta del local -->
+          <p class="text-[14px] text-crema-brioche/80 mb-3">Centro de San Pedro<br>Buenos Aires · Argentina</p>
           <p class="text-[14px] text-crema-brioche/80 mb-4">Martes a domingo<br>12:00 – 15:30 · 19:30 – 23:30</p>
           <p class="font-display text-xs text-amarillo-ensaimada tracking-[0.2em]">HECHO EN SAN PEDRO</p>
         </div>
@@ -868,15 +880,36 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Navbar scroll state
+    // Navbar scroll state + WhatsApp float visibility
     (function() {
       var nav = document.getElementById('navbar');
+      var waFloat = document.querySelector('.wa-float');
+      var hero = document.getElementById('hero');
+      var reservas = document.getElementById('reservas');
+      var footer = document.querySelector('footer');
+
       var onScroll = function() {
-        if (window.scrollY > 24) nav.classList.add('scrolled');
+        var y = window.scrollY;
+        if (y > 24) nav.classList.add('scrolled');
         else nav.classList.remove('scrolled');
+
+        // Ocultar el WA float cuando el usuario está viendo hero, reservas o footer
+        // (ya hay CTAs de WhatsApp o son áreas "finales" donde el float estorba)
+        if (!waFloat) return;
+        var vh = window.innerHeight;
+        var hide = false;
+        [hero, reservas, footer].forEach(function(el) {
+          if (!el) return;
+          var r = el.getBoundingClientRect();
+          // la sección cubre la mitad inferior del viewport
+          if (r.top < vh * 0.5 && r.bottom > vh * 0.5) hide = true;
+        });
+        if (hide) waFloat.classList.add('hidden-cta');
+        else waFloat.classList.remove('hidden-cta');
       };
       onScroll();
       window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
     })();
 
     // Mobile drawer

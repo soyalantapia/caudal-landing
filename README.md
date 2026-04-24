@@ -5,7 +5,7 @@ Stack: HTML5 + Tailwind CSS vía CDN + JavaScript vanilla. Cero build tools, cer
 
 ## URL pública
 
-`TODO: completar tras el deploy a GitHub Pages`
+**Live:** https://soyalantapia.github.io/caudal-landing/
 
 ## Contacto de marca (ya integrado)
 
